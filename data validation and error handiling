@@ -1,0 +1,145 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyNOM/oZprkgHmlbqZiXrLk9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Alen-8080/test/blob/main/data%20validation%20and%20error%20handiling\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4EdkE494qfqI"
+      },
+      "source": [
+        "DATA VALIDATION"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Hrtp8xFSqmfP",
+        "outputId": "312c26ad-e80e-4880-8013-22500cad3a4e"
+      },
+      "source": [
+        "\n",
+        "#first grade\n",
+        "data_valid = False\n",
+        "\n",
+        "while data_valid == False:\n",
+        "  grade1 = input(\"Enter the mark of first test: \")\n",
+        "  try:\n",
+        "    grade1 = float (grade1)\n",
+        "  except:\n",
+        "    print(\"Invalid input\")\n",
+        "    continue\n",
+        "  if (grade1 > 10 or grade1 < 0):\n",
+        "    print(\"Grade should be between 0 and 10\")\n",
+        "  else:\n",
+        "    data_valid = True\n",
+        "\n",
+        "\n",
+        "#second grade\n",
+        "data_valid = False\n",
+        "\n",
+        "while data_valid == False:\n",
+        "  grade2 = input(\"Enter the mark of second test: \")\n",
+        "  try:\n",
+        "    grade2 = float (grade2)\n",
+        "  except:\n",
+        "    print(\"Invalid input\")\n",
+        "    continue\n",
+        "  if (grade2 > 10 or grade2 < 0):\n",
+        "    print(\"Grade should be between 0 and 10\")\n",
+        "  else:\n",
+        "    data_valid = True\n",
+        "\n",
+        "\n",
+        "#number of classes\n",
+        "data_valid = False\n",
+        "\n",
+        "while data_valid == False:\n",
+        "  total_class = int (input(\"Enter the number of total classes: \"))\n",
+        "  try:\n",
+        "    total_class = int (total_class)\n",
+        "  except:\n",
+        "    print(\"Invalid input\")\n",
+        "    continue\n",
+        "  if (total_class <= 0):\n",
+        "    print(\"number of classes should be above 0\")\n",
+        "  else:\n",
+        "    data_valid = True\n",
+        "\n",
+        "\n",
+        "#absence\n",
+        "data_valid = False\n",
+        "\n",
+        "while data_valid == False:\n",
+        "  absence = input(\"Enter the number of absences: \")\n",
+        "  try:\n",
+        "    absence = int (absence)\n",
+        "  except:\n",
+        "    print(\"Invalid input\")\n",
+        "    continue\n",
+        "  if (absence < 0):\n",
+        "    print(\"Cannot be a negative number\")\n",
+        "  else:\n",
+        "    data_valid = True\n",
+        "\n",
+        "#calculations\n",
+        "\n",
+        "avg_grade = (grade1+grade2)/2\n",
+        "attendence = (total_class - absence)/ total_class\n",
+        "\n",
+        "#conditions\n",
+        "\n",
+        "if (avg_grade >= 6 and attendence >=.8):\n",
+        "  print(\"The student has been approved\")\n",
+        "elif (avg_grade < 6 and attendence <.8):\n",
+        "  print(\"The student has failed due to average grade lower than 6 and low attendence\")\n",
+        "elif (attendence <.8):\n",
+        "  print(\"The student has failed due to low attendence\")\n",
+        "else:\n",
+        "  print(\" The student failed due to low grade\")"
+      ],
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Enter the mark of first test: 9\n",
+            "Enter the mark of second test: 9\n",
+            "Enter the number of total classes: 10\n",
+            "Enter the number of absences: 4\n",
+            "The student has failed due to low attendence\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    }
+  ]
+}
